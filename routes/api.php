@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use Illuminate\Http\Request;
 
@@ -21,3 +21,24 @@ Route::post('login', 'PetugasController@login');
 Route::get('/',function(){
   return Auth::user()->level;
 })->middleware('jwt.verify');
+
+//tabel buku
+
+Route::post('buku','BukuController@store')->middleware('jwt.verify');
+Route::get('buku', 'BukuController@tampil')->middleware('jwt.verify');
+Route::put('buku/{id}', 'BukuController@update')->middleware('jwt.verify');
+Route::delete('buku/{id}', 'BukuController@delete')->middleware('jwt.verify');
+
+//tabel Anggota
+
+Route::post('anggota','AnggotaController@store')->middleware('jwt.verify');
+Route::get('anggota', 'AnggotaController@tampil')->middleware('jwt.verify');
+Route::put('anggota/{id}', 'AnggotaController@update')->middleware('jwt.verify');
+Route::delete('anggota/{id}', 'AnggotaController@delete')->middleware('jwt.verify');
+
+//tabel Peminjaman
+
+Route::post('peminjaman','PeminjamanController@store')->middleware('jwt.verify');
+Route::get('peminjaman', 'PeminjamanController@tampil')->middleware('jwt.verify');
+Route::put('peminjaman/{id}', 'PeminjamanController@update')->middleware('jwt.verify');
+Route::delete('peminjaman/{id}', 'PeminjamanController@delete')->middleware('jwt.verify');
