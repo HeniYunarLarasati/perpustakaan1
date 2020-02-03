@@ -42,3 +42,10 @@ Route::post('peminjaman','PeminjamanController@store')->middleware('jwt.verify')
 Route::get('peminjaman', 'PeminjamanController@tampil')->middleware('jwt.verify');
 Route::put('peminjaman/{id}', 'PeminjamanController@update')->middleware('jwt.verify');
 Route::delete('peminjaman/{id}', 'PeminjamanController@delete')->middleware('jwt.verify');
+
+//tabel detail_peminjaman
+
+Route::post('detail','PeminjamanController@storedetail')->middleware('jwt.verify');
+Route::get('detail','PeminjamanController@tampildetail')->middleware('jwt.verify');
+Route::put('detail/{id}','PeminjamanController@updatedetail')->middleware('jwt.verify');
+Route::delete('detail/{id}','PeminjamanController@deletedetail')->middleware('jwt.verify');
